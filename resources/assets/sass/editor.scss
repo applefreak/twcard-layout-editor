@@ -1,0 +1,72 @@
+body {
+  font-family: sans-serif;
+}
+
+.menubar {
+  background-color: red;
+  margin-bottom: 10px;
+  width: auto;
+  height: 2em;
+  ho-align: center;
+}
+
+.property-bar {
+  background-color: yellow;
+  height: 2em;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+/* Default style for text elements */
+.text {
+  width: 150px;
+  /*background-color: #29e;*/
+  /*color: white;*/
+  /*font-size: 20px;*/
+  padding: 10px;
+}
+
+/* Styles for draggable elements */
+.element {
+  position: absolute;
+  box-sizing: border-box;
+  min-height: 1em;
+  min-width: 1em;
+  height: auto;
+}
+
+.selected {
+  border-style: dashed;
+  border-width: 2px;
+}
+
+/*.test-drag {
+  width: auto;
+  height: auto;
+}
+*/
+
+.artboard {
+  width: 900px;
+  height: 540px;
+  border: black solid 3px;
+  box-shadow: 5px 5px 10px #888888;
+}
+
+.input-field {
+  word-wrap: break-word;
+}
+
+.editing {
+  border-style: dashed;
+  border-width: 2px;
+}
+
+.hide {
+  display: none;
+}
+
+/*.svg {
+  width: 100px;
+  height: 100px;
+}*/
