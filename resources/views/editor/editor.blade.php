@@ -16,8 +16,8 @@
 		<button id="property-done">Done</button>
 	</div>
 
-	<div id="artboard">
-		<textbox></textbox>
+	<div class="artboard">
+		<textbox v-for="element in elements" :element.sync="element" v-interact="element"></textbox>
 	</div>
 
 	<!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"
