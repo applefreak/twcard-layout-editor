@@ -17,20 +17,8 @@
 	</div>
 
 	<div class="artboard">
-		<textbox v-for="element in elements" :element.sync="element" v-interact="element"></textbox>
+		<textbox v-for="element in elements" :element="element" v-interact="element"></textbox>
 	</div>
-
-	<!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"
-			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-			  crossorigin="anonymous"></script> -->
-<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
-	<script src="js/lib/interact.min.js"></script>
-	<script src="js/lib/jquery.getStyleObject.js"></script>
-
-	<script src="js/shapes.js"></script>
-	<script src="js/property.js"></script>
-	<script src="js/script.js"></script> -->
 
 	<script src="js/app.js"></script>
 </body>
