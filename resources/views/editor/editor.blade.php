@@ -17,7 +17,7 @@
 	</div>
 
 	<div class="artboard">
-		<textbox v-for="element in elements" :element="element" v-interact="element"></textbox>
+		<textbox v-for="element in elements" :element="element" v-interact="element" :dir-element="element"></textbox>
 	</div>
 
 	<script src="js/app.js"></script>
