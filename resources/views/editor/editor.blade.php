@@ -10,11 +10,7 @@
 		<button id="add_text">Add Text</button>
 	</div>
 	
-	<div class="property-bar hide">
-		<label for="bg-color">BG Color: </label><input id="bg-color" type="text"></input>
-		<label for="text-color">Text Color: </label><input id="text-color" type="text"></input>
-		<button id="property-done">Done</button>
-	</div>
+	<properties-bar></properties-bar>
 
 	<div class="artboard">
 		<textbox v-for="element in elements" :element="element" v-interact="element" :dir-element="element"></textbox>

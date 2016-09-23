@@ -14,34 +14,6 @@
  */
 const interactjs = require('interact.js')
 
-Vue.directive('interact', {
- 	twoWay: true,
- 	params: ['dir-element'],
- 	bind: function () {
- 		var self = this
- 		this.params.dirElement.interact = interactjs(this.el).draggable(true)
- 		.resizable({
-			preserveAspectRatio: false,
-			edges: { left: true, right: true, bottom: true, top: true }
-		})
-		.restrict({
-			drag: 'parent',
-			endOnly: true,
-			elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
-		}).on('dragmove', function(event) {
- 			self.params.dirElement.pos.x += event.dx
- 			self.params.dirElement.pos.y += event.dy
- 		}).on('resizemove', function(event) {
- 			self.params.dirElement.size.width = event.rect.width
- 			self.params.dirElement.size.height = event.rect.height
- 			self.params.dirElement.pos.x += event.deltaRect.left
-			self.params.dirElement.pos.y += event.deltaRect.top
- 		})
- 	}
-});
-
-Vue.component('textbox', require('./components/TextBox.vue'));
-
 var app = new Vue({
 	el: 'body',
 	data: {
@@ -80,5 +52,36 @@ var app = new Vue({
 				}
 			}
 		]
+	},
+	components: {
+		textbox: require('./components/TextBox.vue'),
+		'properties-bar': require('./components/PropertiesBar.vue')
+	},
+	directives: {
+		interact: {
+			twoWay: true,
+			params: ['dir-element'],
+			bind: function () {
+				var self = this
+				this.params.dirElement.interact = interactjs(this.el).draggable(true)
+				.resizable({
+					preserveAspectRatio: false,
+					edges: { left: true, right: true, bottom: true, top: true }
+				})
+				.restrict({
+					drag: 'parent',
+					endOnly: true,
+					elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+				}).on('dragmove', function(event) {
+					self.params.dirElement.pos.x += event.dx
+					self.params.dirElement.pos.y += event.dy
+				}).on('resizemove', function(event) {
+					self.params.dirElement.size.width = event.rect.width
+					self.params.dirElement.size.height = event.rect.height
+					self.params.dirElement.pos.x += event.deltaRect.left
+					self.params.dirElement.pos.y += event.deltaRect.top
+				})
+			}
+		}
 	}
 });

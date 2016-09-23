@@ -1,11 +1,9 @@
 <template>
-
     <div :class="['element', 'text', {'draggable': isDraggable}, {'editing': isEditable}]" :style="getStyles">
         <div class="input-field" :contenteditable="isEditable" @dblclick="dbClicked" @blur="clickedOut">
             {{ element.content }}
         </div>
     </div>
-
 </template>
 
 <script>
