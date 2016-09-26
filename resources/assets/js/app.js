@@ -21,11 +21,6 @@ var app = new Vue({
 		[
 			{
 				content: "Hello World!",
-				styles: {
-					'background-color': '#2299EE',
-					color: 'white',
-					'font-size': '20px'
-				},
 				pos: {
 					x: 10,
 					y: 20
@@ -33,15 +28,13 @@ var app = new Vue({
 				size: {
 					width: 100,
 					height:100
-				}
+				},
+				'bg_color': '#2299EE',
+				color: 'white',
+				'font-size': 20
 			},
 			{ 
 				content: "Hello World again!",
-				styles: {
-				'background-color': '#2299FF',
-				color: 'white',
-				'font-size': '20px'
-				},
 				pos: {
 					x: 450,
 					y: 250
@@ -49,9 +42,13 @@ var app = new Vue({
 				size: {
 					width: 150,
 					height:150
-				}
+				},
+				'bg_color': '#2299FF',
+				color: 'white',
+				'font-size': 20
 			}
-		]
+		],
+		current: false
 	},
 	components: {
 		textbox: require('./components/TextBox.vue'),
@@ -82,6 +79,11 @@ var app = new Vue({
 					self.params.dirElement.pos.y += event.deltaRect.top
 				})
 			}
+		}
+	},
+	events: {
+		item_selected: function (e) {
+			this.current = this.elements[e]
 		}
 	}
 });

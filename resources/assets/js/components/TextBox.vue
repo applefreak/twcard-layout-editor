@@ -9,7 +9,7 @@
 <script>
 
     export default {
-        props: ['element'],
+        props: ['element', 'index'],
         data: function() {
             return {
                 isDraggable: true,
@@ -18,10 +18,14 @@
         },
         computed: {
             getStyles: function() {
-                this.element.styles.transform = 'translate(' + this.element.pos.x + 'px, ' + this.element.pos.y + 'px)'; 
-                this.element.styles.width = this.element.size.width + 'px'; 
-                this.element.styles.height = this.element.size.height + 'px'; 
-                return this.element.styles;
+                return {
+                    transform: 'translate(' + this.element.pos.x + 'px, ' + this.element.pos.y + 'px)',
+                    width: this.element.size.width + 'px',
+                    height: this.element.size.height + 'px',
+                    ['background-color']: this.element['bg_color'],
+                    color: this.element.color,
+                    ['font-size']: this.element['font-size'] + 'px'
+                }
             }
         },
         methods: {
@@ -29,11 +33,13 @@
                 this.isDraggable = false;
                 this.isEditable = true;
                 this.element.interact.draggable(this.isDraggable);
+                this.$dispatch('item_selected', this.index);
             },
             clickedOut: function(e) {
                 this.isDraggable = true;
                 this.isEditable = false;
                 this.element.interact.draggable(this.isDraggable);
+                this.$dispatch('item_selected', false);
             }
         }
     }
