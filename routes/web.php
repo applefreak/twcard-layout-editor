@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('editor', 'EditorController');
+Route::get('editor', 'EditorController@index');
+
+Route::resource('api/layout', 'LayoutController');
