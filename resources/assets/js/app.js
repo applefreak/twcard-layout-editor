@@ -17,6 +17,10 @@ const interactjs = require('interact.js')
 var app = new Vue({
 	el: 'body',
 	data: {
+		size: {
+			width: 900,
+			height: 540
+		},
 		elements:
 		[
 			{
@@ -49,6 +53,14 @@ var app = new Vue({
 			}
 		],
 		current: false
+	},
+	computed: {
+		getSize: function() {
+			return {
+				width: this.size.width + 'px',
+				height: this.size.height + 'px'
+			}
+		}
 	},
 	components: {
 		textbox: require('./components/TextBox.vue'),

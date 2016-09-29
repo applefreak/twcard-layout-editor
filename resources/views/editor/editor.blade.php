@@ -13,7 +13,7 @@
 	
 	<properties-bar v-if="current" :current="current"></properties-bar>
 
-	<div class="artboard">
+	<div class="artboard" :style="getSize">
 		<textbox v-for="element in elements" :element="element" v-interact="element" :dir-element="element" :index="$index"></textbox>
 	</div>
 
