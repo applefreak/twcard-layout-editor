@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -19,4 +19,21 @@
 
 	<script src="js/app.js"></script>
 </body>
-</html>
+</html> --}}
+
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+	<div class="menubar">
+		<button class="btn btn-default btn-xs" id="add_text">Add Text</button>
+	</div>
+	
+	<properties-bar v-if="current" :current="current"></properties-bar>
+
+	<div class="artboard" :style="getSize">
+		<textbox v-for="element in elements" :element="element" v-interact="element" :dir-element="element" :index="$index"></textbox>
+	</div>
+</div>
+@endsection
+
