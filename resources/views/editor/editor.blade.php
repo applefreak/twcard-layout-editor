@@ -27,11 +27,12 @@
 <div class="container">
 	<div class="menubar">
 		<button class="btn btn-default btn-xs" id="add_text">Add Text</button>
+		<button class="btn btn-default btn-xs" @click="save">Save Layout</button>
 	</div>
 	
 	<properties-bar v-if="current" :current="current"></properties-bar>
 
-	<div class="artboard" :style="getSize">
+	<div class="artboard" :style="getSize" data-layout-id="{{ $layout_id }}">
 		<textbox v-for="element in elements" :element="element" v-interact="element" :dir-element="element" :index="$index"></textbox>
 	</div>
 </div>

@@ -13,6 +13,7 @@
  * the application, or feel free to tweak this setup for your needs.
  */
 const interactjs = require('interact.js')
+const helper = require('./helper')
 
 var app = new Vue({
 	el: 'body',
@@ -21,37 +22,37 @@ var app = new Vue({
 			width: 900,
 			height: 540
 		},
-		elements:
-		[
-			{
-				content: "Hello World!",
-				pos: {
-					x: 10,
-					y: 20
-				},
-				size: {
-					width: 100,
-					height:100
-				},
-				'bg_color': '#2299EE',
-				color: 'white',
-				'font-size': 20
-			},
-			{ 
-				content: "Hello World again!",
-				pos: {
-					x: 450,
-					y: 250
-				},
-				size: {
-					width: 150,
-					height:150
-				},
-				'bg_color': '#2299FF',
-				color: 'white',
-				'font-size': 20
-			}
-		],
+		elements: [],
+		// [
+		// 	{
+		// 		content: "Hello World!",
+		// 		pos: {
+		// 			x: 10,
+		// 			y: 20
+		// 		},
+		// 		size: {
+		// 			width: 100,
+		// 			height:100
+		// 		},
+		// 		'bg_color': '#2299EE',
+		// 		color: 'white',
+		// 		'font-size': 20
+		// 	},
+		// 	{ 
+		// 		content: "Hello World again!",
+		// 		pos: {
+		// 			x: 450,
+		// 			y: 250
+		// 		},
+		// 		size: {
+		// 			width: 150,
+		// 			height:150
+		// 		},
+		// 		'bg_color': '#2299FF',
+		// 		color: 'white',
+		// 		'font-size': 20
+		// 	}
+		// ],
 		current: false
 	},
 	computed: {
@@ -65,6 +66,24 @@ var app = new Vue({
 	components: {
 		textbox: require('./components/TextBox.vue'),
 		'properties-bar': require('./components/PropertiesBar.vue')
+	},
+	methods: {
+		save: function() {
+			if (this.layout_id === 'new') {
+				console.log('Creating New Layout...');
+				this.resource.save(helper.constructLayoutContent(this)).then(function(res) {
+					this.layout_id = res.layout_id;
+					console.log('Layout Created!', res);
+				});
+			} else {
+				console.log('Saving Existing Layout...');
+				this.resource.update({id: this.layout_id}, helper.constructLayoutContent(this)).then(function(res) {
+					console.log('Layout Updated!', res);
+					console.log(res);
+				});
+			}
+			
+		}
 	},
 	directives: {
 		interact: {
@@ -96,6 +115,20 @@ var app = new Vue({
 	events: {
 		item_selected: function (e) {
 			this.current = this.elements[e]
+		}
+	},
+	created: function() {
+		this.$http.headers.common['X-XSRF-TOKEN'] = helper.getCsrfToken;
+		this.$http.options.root = '/root';
+		this.resource = this.$resource('/editor{/id}');
+		this.layout_id = helper.getLayoutId;
+		if (this.layout_id !== 'new') {
+			this.resource.get({id: this.layout_id}).then(function(res) {
+				this.size.width = res.data.width;
+				this.size.height = res.data.height;
+				this.elements = JSON.parse(res.data.elements);
+				console.log('Done Loading Layout');
+			});
 		}
 	}
 });

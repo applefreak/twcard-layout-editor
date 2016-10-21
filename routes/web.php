@@ -16,10 +16,11 @@ Route::get('/', function () {
 });
 
 
-Route::resource('api/layout', 'LayoutController');
+Route::resource('editor', 'LayoutController');
 
 Auth::routes();
 
-Route::get('editor', 'EditorController@index');
+// Route::get('editor', 'EditorController@index');
 
 Route::get('/dashboard', 'DashboardController@index');
+Route::get('/profile', 'ProfileController@index');
