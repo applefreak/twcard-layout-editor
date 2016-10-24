@@ -21,6 +21,8 @@ var VueResource = require('vue-resource');
 
 Vue.use(VueResource);
 
+window.Medium = require('./medium');
+
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
  * the outgoing requests issued by this application. The CSRF middleware

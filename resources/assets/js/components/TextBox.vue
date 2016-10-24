@@ -1,8 +1,6 @@
 <template>
     <div :class="['element', 'text', {'draggable': isDraggable}, {'editing': isEditable}]" :style="getStyles">
-        <div class="input-field" v-model="element.content" :contenteditable="isEditable" @dblclick="dbClicked" @blur="clickedOut">
-            {{ element.content }}
-        </div>
+        <div class="input-field" v-medium='element.content' mode="partial" :contenteditable="isEditable" @dblclick="dbClicked" @blur="clickedOut"></div>
     </div>
 </template>
 
@@ -41,6 +39,9 @@
                 this.element.interact.draggable(this.isDraggable);
                 this.$dispatch('item_selected', false);
             }
+        },
+        directives: {
+            medium: require('../mediumDirective')
         }
     }
 
