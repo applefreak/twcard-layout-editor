@@ -9,16 +9,24 @@ use App\Http\Requests;
 
 use App\Layout;
 
+use App\User;
+
 class LayoutController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
-        return 'hello';
+        $layouts = Auth::user()->layouts;
+        return view('editor.lists', ['layouts' => $layouts]);
     }
 
     /**
@@ -48,8 +56,8 @@ class LayoutController extends Controller
         $success = $layout->save();
 
         return ['success' => $success,
-                'layout_id' => $layout->id
-               ];
+        'layout_id' => $layout->id
+        ];
     }
 
     /**

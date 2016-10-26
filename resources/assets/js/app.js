@@ -119,8 +119,8 @@ var app = new Vue({
 	},
 	created: function() {
 		this.$http.headers.common['X-XSRF-TOKEN'] = helper.getCsrfToken;
-		this.$http.options.root = '/root';
-		this.resource = this.$resource('/editor{/id}');
+		// this.$http.options.root = '/root';
+		this.resource = this.$resource('/layouts{/id}');
 		this.layout_id = helper.getLayoutId;
 		if (this.layout_id !== 'new') {
 			this.resource.get({id: this.layout_id}).then(function(res) {

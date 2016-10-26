@@ -43,7 +43,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                 @if (Auth::check())
-                    <li><a href="{{ url('/editor') }}">Editor</a></li>
+                    <li><a href="{{ url('/layouts') }}">Layouts</a></li>
                 @endif
                 </ul>
 

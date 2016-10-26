@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 
-Route::resource('editor', 'LayoutController');
+Route::resource('layouts', 'LayoutController');
 
 Auth::routes();
 
