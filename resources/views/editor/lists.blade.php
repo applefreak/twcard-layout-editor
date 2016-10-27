@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" id="layout_lists">
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<a class="btn btn-default" href="{{ action('LayoutController@create') }}"><span class="glyphicon glyphicon-plus"></span> New Layout</a>

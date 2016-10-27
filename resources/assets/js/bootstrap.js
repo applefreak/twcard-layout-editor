@@ -21,7 +21,7 @@ var VueResource = require('vue-resource');
 
 Vue.use(VueResource);
 
-window.Medium = require('./medium');
+window.Medium = require('./editor/medium');
 
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
