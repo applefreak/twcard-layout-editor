@@ -24,7 +24,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" id="editor">
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<button class="btn btn-default" @click="add_element('text_box')"><span class="glyphicon glyphicon-font"></span> Add Text Box</button>

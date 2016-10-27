@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<a class="btn btn-default" href="{{ action('LayoutController@create') }}"><span class="glyphicon glyphicon-plus"></span> New Layout</a>
+		</div>
+	</div>
 	<div class="list-group">
 		@foreach ($layouts as $layout)
 		<div class="list-group-item">
@@ -13,7 +18,6 @@
 			<a class="btn btn-default" href="#"><span class="glyphicon glyphicon-trash"></span> Delete</a>
 		</div>
 		@endforeach
-		<a class="list-group-item" href="{{ action('LayoutController@create') }}">Create New Layout</a>
 	</div>
 </div>
 @endsection

@@ -17,7 +17,7 @@ const helper = require('./helper')
 const defaults = require('./default_elements')
 
 var app = new Vue({
-	el: 'body',
+	el: '#editor',
 	data: {
 		size: {
 			width: 900,
