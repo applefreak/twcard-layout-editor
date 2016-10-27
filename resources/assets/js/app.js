@@ -14,6 +14,7 @@
  */
 const interactjs = require('interact.js')
 const helper = require('./helper')
+const defaults = require('./default_elements')
 
 var app = new Vue({
 	el: 'body',
@@ -53,7 +54,8 @@ var app = new Vue({
 		// 		'font-size': 20
 		// 	}
 		// ],
-		current: false
+		current: false,
+		defaults: defaults
 	},
 	computed: {
 		getSize: function() {
@@ -83,6 +85,9 @@ var app = new Vue({
 				});
 			}
 			
+		},
+		add_element: function(type) {
+			this.elements.push(defaults[type]);
 		}
 	},
 	directives: {

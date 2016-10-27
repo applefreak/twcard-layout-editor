@@ -26,7 +26,7 @@
 @section('content')
 <div class="container">
 	<div class="menubar">
-		<button class="btn btn-default btn-xs" id="add_text">Add Text</button>
+		<button class="btn btn-default btn-xs" @click="add_element('text_box')">Add Text</button>
 		<button class="btn btn-default btn-xs" @click="save">Save Layout</button>
 	</div>
 	
