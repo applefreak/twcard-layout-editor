@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 
-use App\Layout;
+use App\Models\Layout;
 
-use App\User;
+use App\Models\User;
 
 class LayoutController extends Controller
 {
