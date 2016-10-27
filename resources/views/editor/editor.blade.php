@@ -34,7 +34,7 @@
 	
 	<properties-bar v-if="current" :current="current"></properties-bar>
 
-	<div class="artboard" :style="getSize" data-layout-id="{{ $layout_id }}">
+	<div class="artboard center-block" id="artboard" :style="getSize" data-layout-id="{{ $layout_id }}">
 		<textbox v-for="element in elements" :element="element" v-interact="element" :dir-element="element" :index="$index"></textbox>
 	</div>
 </div>

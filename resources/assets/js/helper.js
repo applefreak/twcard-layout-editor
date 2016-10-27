@@ -1,7 +1,7 @@
 
 var getCsrfToken = document.querySelector('meta[name=csrf-token]').getAttribute('content');
 
-var getLayoutId = document.querySelector('div[class=artboard]').getAttribute('data-layout-id');
+var getLayoutId = document.querySelector('div[id=artboard]').getAttribute('data-layout-id');
 
 var constructLayoutContent = function(vm_data) {
 	var elements = vm_data.elements;
