@@ -25,9 +25,11 @@
 
 @section('content')
 <div class="container">
-	<div class="menubar">
-		<button class="btn btn-default btn-xs" @click="add_element('text_box')">Add Text</button>
-		<button class="btn btn-default btn-xs" @click="save">Save Layout</button>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<button class="btn btn-default" @click="add_element('text_box')"><span class="glyphicon glyphicon-font"></span> Add Text Box</button>
+			<button class="btn btn-default pull-right" @click="save"><span class="glyphicon glyphicon-floppy-disk"></span> Save Layout</button>
+		</div>
 	</div>
 	
 	<properties-bar v-if="current" :current="current"></properties-bar>
