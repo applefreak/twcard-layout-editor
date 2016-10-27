@@ -17,6 +17,7 @@
     "webpack": "^2.1.0-beta.22"
   },
   "dependencies": {
-    "interact.js": "^1.2.6"
+    "interact.js": "^1.2.6",
+    "spectrum-colorpicker": "^1.8.0"
   }
 }
